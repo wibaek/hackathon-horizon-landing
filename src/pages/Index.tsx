@@ -51,9 +51,6 @@ const Index = () => {
               해커톤 호라이즌
             </span>
           </div>
-          <Button variant="outline" className="hidden md:flex">
-            로그인
-          </Button>
         </nav>
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
@@ -63,9 +60,11 @@ const Index = () => {
               아이디어를 탐색해보세요!
             </h1>
             <p className="text-lg md:text-xl text-gray-700 mb-8">
-              수많은 해커톤과 공모전에서 탄생한 혁신적인 아이디어와 프로젝트를
-              한 곳에서 쉽게 찾아보세요. 흩어진 정보를 찾아 헤매는 시간을
-              절약하고, 트렌드를 파악하며 영감을 얻을 수 있습니다.
+              수많은 해커톤과 탄생한 아이디어와 프로젝트를 한 곳에서 쉽게
+              찾아보세요.
+              <br />
+              흩어진 정보를 찾아 헤매는 시간을 절약하고, 영감을 쉽게 얻을 수
+              있습니다.
             </p>
 
             <div
@@ -207,7 +206,7 @@ const Index = () => {
                 icon: <Search className="h-10 w-10 text-indigo-600" />,
                 title: "정보 접근성 문제",
                 description:
-                  "각각의 해커톤과 공모전 정보는 여러 사이트에 흩어져 있어, 관련 프로젝트를 찾는 데 많은 시간이 소요됩니다.",
+                  "해커톤 정보는 여러 사이트에 흩어져 있어, 관련 프로젝트를 찾는 데 많은 시간이 소요됩니다.",
               },
               {
                 icon: <TrendingUp className="h-10 w-10 text-indigo-600" />,
@@ -245,9 +244,8 @@ const Index = () => {
             <span className="text-indigo-600">아이디어 검색 허브</span>
           </h2>
           <p className="text-center text-gray-600 max-w-2xl mx-auto mb-16">
-            해커톤 호라이즌은 과거 해커톤과 공모전의 모든 프로젝트를 한곳에
-            모아, 여러분이 필요한 정보를 쉽고 빠르게 찾을 수 있도록
-            도와드립니다.
+            해커톤 호라이즌은 과거 해커톤의 모든 프로젝트를 한곳에 모아,
+            여러분이 필요한 정보를 쉽고 빠르게 찾을 수 있도록 도와드립니다.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -258,9 +256,9 @@ const Index = () => {
                   아이디어 영감의 보고
                 </h3>
                 <p className="text-gray-700 mb-6">
-                  다양한 분야의 혁신적인 프로젝트를 탐색하며 새로운 아이디어에
-                  영감을 받아보세요. 인공지능, 의료기술, 환경, 교육 등 분야별
-                  우수 프로젝트를 한눈에 확인할 수 있습니다.
+                  다양한 분야의 혁신적인 프로젝트를 탐색하며 새로운 아이디어
+                  영감을 받아보세요. 인공지능, 환경, 교육 등 분야별 우수
+                  프로젝트를 한눈에 확인할 수 있습니다.
                 </p>
                 <ul className="space-y-2">
                   {[
@@ -351,15 +349,6 @@ const Index = () => {
               <a href="#" className="hover:text-white transition-colors">
                 서비스 소개
               </a>
-              <a href="#" className="hover:text-white transition-colors">
-                이용약관
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                개인정보처리방침
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                문의하기
-              </a>
             </div>
           </div>
 
@@ -368,6 +357,7 @@ const Index = () => {
             <p className="mt-2">
               혁신적인 아이디어를 찾는 모든 분들을 위한 플랫폼
             </p>
+            <p className="mt-2">문의: devmuromi@gmail.com</p>
           </div>
         </div>
       </footer>
