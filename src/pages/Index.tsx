@@ -78,6 +78,7 @@ const Index = () => {
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'AW-17025144864');
+          gtag('config', 'G-XF297H9GBQ');
         `}
       </script>
       <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-blue-50">
