@@ -1,0 +1,46 @@
+name: Deploy Staticc Web Project to S3 and CloudFront
+
+on:
+  push:
+    branches:
+      - main # main 브랜치 대신 다른 브랜치(예: master, release)를 사용한다면 수정하세요.
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18" # 프로젝트에 맞는 Node.js 버전을 지정 (예: '16', '18', '20')
+          cache: "npm" # npm 의존성 캐싱 사용
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }} # GitHub Secrets에 저장된 AWS 액세스 키 ID
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # GitHub Secrets에 저장된 AWS 비밀 액세스 키
+          aws-region: ${{ secrets.AWS_REGION }} # S3 버킷 및 CloudFront가 있는 AWS 리전
+
+      - name: Deploy to S3
+        # './dist'는 Vite의 기본 빌드 출력 폴더입니다. 다르다면 수정하세요.
+        run: |
+          aws s3 sync /dist s3://${{ secrets.AWS_S3_BUCKET }} --delete
+
+      # 7. CloudFront 캐시 무효화
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.AWS_CLOUDFRONT_ID }} \
+            --paths "/*"
