@@ -36,7 +36,7 @@ jobs:
       - name: Deploy to S3
         # './dist'는 Vite의 기본 빌드 출력 폴더입니다. 다르다면 수정하세요.
         run: |
-          aws s3 sync /dist s3://${{ secrets.AWS_S3_BUCKET }} --delete
+          aws s3 sync dist/ s3://${{ secrets.AWS_S3_BUCKET }} --delete
 
       # 7. CloudFront 캐시 무효화
       - name: Invalidate CloudFront cache
